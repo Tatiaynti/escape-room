@@ -1,4 +1,3 @@
-// @ts-expect-error ts-migrate(7016) FIXME: Could not find a declaration file for module 'styl... Remove this comment to see the full error message
 import { createGlobalStyle } from 'styled-components';
 // @ts-expect-error ts-migrate(2307) FIXME: Cannot find module 'assets/fonts/raleway-regular.w... Remove this comment to see the full error message
 import RalewayRegularWoff2 from 'assets/fonts/raleway-regular.woff2';
