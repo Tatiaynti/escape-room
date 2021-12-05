@@ -9,21 +9,29 @@ import Contacts from 'components/contacts/contacts';
 import Home from 'components/home/home';
 import { appTheme } from './common';
 import * as S from './app.styled';
+import { AppRoute } from 'const.js';
+import PageNotFound from 'components/common/page-not-found/page-not-found.jsx';
+import browserHistory from 'browser-history';
 
 const App = () => (
   <ThemeProvider theme={appTheme}>
     <S.GlobalStyle />
-    <Router>
+    <Router history={browserHistory}>
       <Switch>
-        <Route exact path="/quest">
+        <Route exact path={AppRoute.QuestPage}>
           <DetailedQuest />
         </Route>
-        <Route exact path="/contacts">
+        <Route exact path={AppRoute.Contacts}>
           <Contacts />
         </Route>
-        <Route path="/">
+        <Route exact path={AppRoute.Main}>
           <Home />
         </Route>
+        <Route
+          render={() => (
+            <PageNotFound />
+          )}
+        />
       </Switch>
     </Router>
   </ThemeProvider>

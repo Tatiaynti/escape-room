@@ -80,7 +80,7 @@ const ContactsMap = styled.div`
   margin-left: auto;
 `;
 
-const ContactsMapImage = styled.img`
+const ContactsMapImage = styled.iframe`
   position: absolute;
   top: 0;
   left: 0;
