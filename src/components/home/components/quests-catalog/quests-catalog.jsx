@@ -8,7 +8,7 @@ import QuestItem from './quest-item.jsx';
 const QuestsCatalog = () => {
   const currentGenre = useSelector(getCurrentGenre);
   const quests = useSelector(getQuestsByGenre);
-// console.log(quests);
+
   return (
   <>
     <S.Tabs>

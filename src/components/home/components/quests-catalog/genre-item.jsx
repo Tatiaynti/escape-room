@@ -6,6 +6,8 @@ import { ReactComponent as IconDetective } from 'assets/img/icon-detective.svg';
 import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
 import * as S from './quests-catalog.styled';
 import { Genres, GenresTranslation } from 'const.js';
+import { useDispatch } from 'react-redux';
+import { setGenre } from 'store/actions.js';
 
 const GenresImage = {
   [Genres.AllQuests]: <IconAllQuests />,
@@ -17,9 +19,12 @@ const GenresImage = {
 }
 
 const GenreItem = ({genre, isActiveGenre}) => {
+  const dispatch = useDispatch();
+  const onGenreClick = () => dispatch(setGenre(Genres[genre]));
+
   return (
   <S.TabItem>
-    <S.TabBtn isActive={isActiveGenre} >
+    <S.TabBtn isActive={isActiveGenre} onClick={onGenreClick}>
     {GenresImage[genre]}
       <S.TabTitle>{GenresTranslation[genre]}</S.TabTitle>
     </S.TabBtn>
