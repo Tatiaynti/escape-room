@@ -5,6 +5,8 @@ import { getCurrentGenre, getQuestsByGenre } from 'store/selectors.js';
 import GenreItem from './genre-item.jsx';
 import QuestItem from './quest-item.jsx';
 
+const NO_QUESTS = 'В этой категории нет квестов';
+
 const QuestsCatalog = () => {
   const currentGenre = useSelector(getCurrentGenre);
   const quests = useSelector(getQuestsByGenre);
@@ -16,7 +18,10 @@ const QuestsCatalog = () => {
     </S.Tabs>
 
     <S.QuestsList>
-    {quests.map(quest => <QuestItem key={quest.id} id={quest.id} title={quest.title} previewImg={quest.previewImg} level={quest.level} peopleCount={quest.peopleCount}/> )}
+      {quests.length > 0 ?
+    quests.map(quest => <QuestItem key={quest.id} id={quest.id} title={quest.title} previewImg={quest.previewImg} level={quest.level} peopleCount={quest.peopleCount}/> )
+  : NO_QUESTS
+  }
     </S.QuestsList>
   </>
   )
