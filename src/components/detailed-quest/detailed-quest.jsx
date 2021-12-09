@@ -23,10 +23,14 @@ const DetailedQuest = () => {
     dispatch(fetchCurrentQuestAction(currentQuestId));
   }, [dispatch, currentQuestId])
 
-  const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
-  const onBookingBtnClick = () => {
-    setIsBookingModalOpened(true);
+  const handleBookingBtnClick = () => {
+    setIsBookingModalOpen(true);
+  };
+
+  const handleCloseBookingBtnClick = () => {
+    setIsBookingModalOpen(false);
   };
 
   console.log(currentQuest);
@@ -71,13 +75,13 @@ const DetailedQuest = () => {
             {currentQuest.description}
             </S.QuestDescription>
 
-            <S.QuestBookingBtn onClick={onBookingBtnClick}>
+            <S.QuestBookingBtn onClick={handleBookingBtnClick}>
               Забронировать
             </S.QuestBookingBtn>
           </S.PageDescription>
         </S.PageContentWrapper>
 
-        {isBookingModalOpened && <BookingModal />}
+        {isBookingModalOpen && <BookingModal handleCloseBookingBtnClick={handleCloseBookingBtnClick} />}
       </S.Main>
     </MainLayout>
   );

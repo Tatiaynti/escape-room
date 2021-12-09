@@ -6,13 +6,13 @@ import { sendNewOrderAction } from 'store/api-actions.js';
 
 const PHONE_LENGTH = 10;
 
-const BookingModal = ({onCloseBookingBtnClick}) => {
+const BookingModal = ({handleCloseBookingBtnClick}) => {
   const dispatch = useDispatch();
   const name = useRef(null);
   const phone = useRef(null);
   const peopleCount = useRef(null);
 
-  const onFormSubmit = (evt) => {
+  const handleFormSubmit = (evt) => {
     evt.preventDefault();
     const orederPost = {
       name: name.current.value,
@@ -20,13 +20,13 @@ const BookingModal = ({onCloseBookingBtnClick}) => {
       phone: phone.current.value,
       isLegal: true
     }
-    dispatch(sendNewOrderAction(orederPost, onCloseBookingBtnClick));
+    dispatch(sendNewOrderAction(orederPost, handleCloseBookingBtnClick));
   }
 
   return (
   <S.BlockLayer>
     <S.Modal>
-      <S.ModalCloseBtn>
+      <S.ModalCloseBtn onClick={handleCloseBookingBtnClick}>
         <IconClose width="16" height="16" />
         <S.ModalCloseLabel>Закрыть окно</S.ModalCloseLabel>
       </S.ModalCloseBtn>
@@ -35,7 +35,7 @@ const BookingModal = ({onCloseBookingBtnClick}) => {
         action="https://echo.htmlacademy.ru"
         method="post"
         id="booking-form"
-        onSubmit={onFormSubmit}
+        onSubmit={handleFormSubmit}
       >
         <S.BookingField>
           <S.BookingLabel htmlFor="booking-name">Ваше Имя</S.BookingLabel>

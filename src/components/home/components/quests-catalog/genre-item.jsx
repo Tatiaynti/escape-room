@@ -20,11 +20,11 @@ const GenresImage = {
 
 const GenreItem = ({genre, isActiveGenre}) => {
   const dispatch = useDispatch();
-  const onGenreClick = () => dispatch(setGenre(Genres[genre]));
+  const handleGenreClick = () => dispatch(setGenre(Genres[genre]));
 
   return (
   <S.TabItem>
-    <S.TabBtn isActive={isActiveGenre} onClick={onGenreClick}>
+    <S.TabBtn isActive={isActiveGenre} onClick={handleGenreClick}>
     {GenresImage[genre]}
       <S.TabTitle>{GenresTranslation[genre]}</S.TabTitle>
     </S.TabBtn>
