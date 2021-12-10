@@ -2,7 +2,7 @@ import { ApiPath, Genres } from "const.js";
 import { setCurrentQuest, setQuests } from "./actions.js";
 
 const GenresAdapter = {
-  'adventures' : Genres.Adventures,
+  'adventures': Genres.Adventures,
   'horror': Genres.Horrors,
   'mystic': Genres.Mystic,
   'detective': Genres.Detective,

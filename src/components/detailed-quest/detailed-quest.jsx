@@ -33,14 +33,6 @@ const DetailedQuest = () => {
     setIsBookingModalOpen(false);
   };
 
-  console.log(currentQuest);
-
-  console.log(currentQuest.peopleCount);
-
-  // const {peopleCount} = currentQuest.peopleCount;
-  // const [minPeopleCount, maxPeopleCount] = peopleCount;
-  // console.log(minPeopleCount, maxPeopleCount);
-
   return (
     <MainLayout>
       <S.Main>
