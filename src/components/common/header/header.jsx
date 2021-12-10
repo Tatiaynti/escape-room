@@ -23,15 +23,15 @@ return (
           </S.LinkItem>
 
           <S.LinkItem>
-            <S.Link to="#">Новичкам</S.Link>
+            <S.Link $isActiveLink={activePathName === AppRoute.DevMode} to={AppRoute.DevMode}>Новичкам</S.Link>
           </S.LinkItem>
 
           <S.LinkItem>
-            <S.Link to="#">Отзывы</S.Link>
+            <S.Link $isActiveLink={activePathName === AppRoute.DevMode} to={AppRoute.DevMode}>Отзывы</S.Link>
           </S.LinkItem>
 
           <S.LinkItem>
-            <S.Link to="#">Акции</S.Link>
+            <S.Link $isActiveLink={activePathName === AppRoute.DevMode} to={AppRoute.DevMode}>Акции</S.Link>
           </S.LinkItem>
 
           <S.LinkItem>

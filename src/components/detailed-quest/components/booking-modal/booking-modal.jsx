@@ -1,10 +1,32 @@
 import * as S from './booking-modal.styled';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
+import { useDispatch } from 'react-redux';
+import { useRef } from 'react';
+import { sendNewOrderAction } from 'store/api-actions.js';
 
-const BookingModal = () => (
+const PHONE_LENGTH = 10;
+
+const BookingModal = ({handleCloseBookingBtnClick}) => {
+  const dispatch = useDispatch();
+  const name = useRef(null);
+  const phone = useRef(null);
+  const peopleCount = useRef(null);
+
+  const handleFormSubmit = (evt) => {
+    evt.preventDefault();
+    const orederPost = {
+      name: name.current.value,
+      peopleCount: Number(peopleCount.current.value),
+      phone: phone.current.value,
+      isLegal: true
+    }
+    dispatch(sendNewOrderAction(orederPost, handleCloseBookingBtnClick));
+  }
+
+  return (
   <S.BlockLayer>
     <S.Modal>
-      <S.ModalCloseBtn>
+      <S.ModalCloseBtn onClick={handleCloseBookingBtnClick}>
         <IconClose width="16" height="16" />
         <S.ModalCloseLabel>Закрыть окно</S.ModalCloseLabel>
       </S.ModalCloseBtn>
@@ -13,6 +35,7 @@ const BookingModal = () => (
         action="https://echo.htmlacademy.ru"
         method="post"
         id="booking-form"
+        onSubmit={handleFormSubmit}
       >
         <S.BookingField>
           <S.BookingLabel htmlFor="booking-name">Ваше Имя</S.BookingLabel>
@@ -21,6 +44,7 @@ const BookingModal = () => (
             id="booking-name"
             name="booking-name"
             placeholder="Имя"
+            ref={name}
             required
           />
         </S.BookingField>
@@ -33,6 +57,9 @@ const BookingModal = () => (
             id="booking-phone"
             name="booking-phone"
             placeholder="Телефон"
+            ref={phone}
+            minLength={PHONE_LENGTH}
+            maxLength={PHONE_LENGTH}
             required
           />
         </S.BookingField>
@@ -45,6 +72,7 @@ const BookingModal = () => (
             id="booking-people"
             name="booking-people"
             placeholder="Количество участников"
+            ref={peopleCount}
             required
           />
         </S.BookingField>
@@ -72,6 +100,7 @@ const BookingModal = () => (
       </S.BookingForm>
     </S.Modal>
   </S.BlockLayer>
-);
+  )
+};
 
 export default BookingModal;

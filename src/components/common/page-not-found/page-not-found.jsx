@@ -8,7 +8,7 @@ const PageNotFound = () => (
     <br />
     <small>Page not found</small>
   </h1>
-  <Link to="/">Go to main page</Link>
+  <Link to="/">Вернуться на главную страницу</Link>
 </Fragment>
 );
 
