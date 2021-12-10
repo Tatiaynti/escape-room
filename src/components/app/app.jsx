@@ -12,6 +12,7 @@ import * as S from './app.styled';
 import { AppRoute } from 'const.js';
 import PageNotFound from 'components/common/page-not-found/page-not-found.jsx';
 import browserHistory from 'browser-history';
+import MockPage from 'components/common/header/mock-page.jsx';
 
 const App = () => (
   <ThemeProvider theme={appTheme}>
@@ -26,6 +27,9 @@ const App = () => (
         </Route>
         <Route exact path={AppRoute.Main}>
           <Home />
+        </Route>
+        <Route exact path={AppRoute.DevMode}>
+          <MockPage />
         </Route>
         <Route
           render={() => (

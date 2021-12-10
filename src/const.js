@@ -2,6 +2,7 @@ const AppRoute = {
   Main: '/',
   QuestPage: '/detailed-quest/:id',
   Contacts: '/contacts',
+  DevMode: '/development',
 };
 
 const ActionType = {
@@ -34,4 +35,10 @@ const QuestLevelTranslation = {
   'hard' : 'Сложный',
 }
 
-export {AppRoute, ActionType, Genres, GenresTranslation, QuestLevelTranslation};
+const ApiPath = {
+  Orders: '/orders',
+  Quests: '/quests',
+  CurrentQuest: (id) => `/quests/${id}`,
+};
+
+export {AppRoute, ActionType, Genres, GenresTranslation, QuestLevelTranslation, ApiPath};

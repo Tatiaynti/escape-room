@@ -37,7 +37,8 @@ const DetailedQuest = () => {
 
   console.log(currentQuest.peopleCount);
 
-  // const [minPeopleCount, maxPeopleCount] = currentQuest.peopleCount;
+  // const {peopleCount} = currentQuest.peopleCount;
+  // const [minPeopleCount, maxPeopleCount] = peopleCount;
   // console.log(minPeopleCount, maxPeopleCount);
 
   return (
